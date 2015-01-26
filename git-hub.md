@@ -17,6 +17,7 @@ Pour avoir la couleur (en N&B par défaut) et autres réglages:
 	git config --global core.editor vim
 	git config --global push.default upstream
 	git config --global user.name "DO"
+	git config --global credential.helper wincred
 	git config --global user.email you@example.com
 	git config --global merge.conflictstyle diff3
 
@@ -78,9 +79,14 @@ montre modifs par rapport au commit précédent
 ## git clone
 
 Permet de rappatrier en local ou dupliquer localement
-git clone https://github.com/udacity/asteroids.git
 
+	git clone https://github.com/udacity/asteroids.git
 	git remote -v
+
+Si on veut lier un repository GitHub avec un dossier local
+
+	git remote add origin [URL]
+	git push origin master
 
 permet d'avoir les infos sur repository origin
 
@@ -130,7 +136,28 @@ Affichage arbre:
 2. git merge master coins
 3. en cas de bogue git merge --abort
 
+## git fetch
+
+
+git fetch = copie locale d'un dépot distant (toutes branches)
+
+git pull origin master
+=
+git fetch origin 
++
+git merge origin/master master
+
 ## URL de dossiers intéressants
 
 <https://github.com/udacity/pappu-pakia.git>
 <https://github.com/udacity/asteroids.git>
+
+## git reset [commit]
+
+permet de revenir au commit (on supprimer commits ultérieurs)
+Les fichiers du répertoire de travail ne sont pas modifiés
+
+git reset --hard 
+
+Annule les mises à jour des fichiers du répertoire de travail depuis le commit
+
