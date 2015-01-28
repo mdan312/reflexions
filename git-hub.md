@@ -3,6 +3,10 @@
 Système pour gérer les versions et le travail collaboratif
 https://www.udacity.com/wiki/ud775/install-git
 
+Excellent survol de GIT
+https://try.github.io/levels/1/challenges/1
+
+
 Autres systèmes: CVS qui a été amélioré en SVN (subversion) et Mercurial (HG) qui est similaire à GIT.  
 SVN ne fonctionne pas offline.
 
@@ -20,6 +24,8 @@ Pour avoir la couleur (en N&B par défaut) et autres réglages:
 	git config --global credential.helper wincred
 	git config --global user.email you@example.com
 	git config --global merge.conflictstyle diff3
+	git config --global alias.wdiff "diff --color-words"
+	git config --global alias.wshow "show --color-words"
 
 ## .bash_profile
 
@@ -34,7 +40,7 @@ Ce fichier peut aussi servir à lancer des scripts shells, du genre git-prompt.sh
 
 
 ## Aide en ligne
-Pour avoir la doc (styme `man`) d'une commande: `git help <command>`.  
+Pour avoir la doc (style `man`) d'une commande: `git help <command>`.  
 exemple: `git help diff`.  
 
 ## Différences
@@ -55,12 +61,14 @@ Windiff
 
 ID, auteur, date, commentaire  
 L'option --stat liste les fichiers modifiés et le nombre de modifs  
+L'option --summary liste les fichiers modifiés et le nombre de modifs  
 L'option --oneline liste seulemement ID et message
 
-`q` pour quitter
+`q` pour quitter (on a certaines options de vim comme la recherche par /search)
+
 ## git diff
 
-Par défaut compare fichiers du répertoire courant avec staging area. Si option `--stagged` compare staging area avec dernier commit
+Par défaut compare fichiers du répertoire courant avec staging area (fichiers prêts à être commités). Si option `--stagged` compare staging area avec dernier commit
 
 	git diff --staged
 
@@ -75,6 +83,11 @@ pour chaque modif: numéros de ligne et nb de lignes
 	git show ID
 
 montre modifs par rapport au commit précédent
+
+	git diff --color-words
+	git show --color-words
+
+
 
 ## git clone
 
@@ -101,6 +114,13 @@ Crée le dossier .git mais ne fait pas de commit
 
 ## git add -A
 
+ajoute fichiers à staging area
+git reset <filename> = supprime fichiers de staging area
+
+git checkout -- octocat.txt 
+
+annule modifs sur fichier depuis dernier commit
+
 ## git status
 
 Permet de voir modifications non commitées
@@ -115,7 +135,15 @@ ou changement de branche
 
 	git checkout [branch]
 
-##  git commit -m "[descriptive message]"
+ou pour partir d'un ancien noeud
+
+	git checkout -b new_branch_name
+
+
+
+##  git commit -am "[descriptive message]"
+
+-a ajoute les fichiers à la stagging area et tient compte des fichiers supprimés.
 
 ## git branch [nomBranche]
 
@@ -152,12 +180,53 @@ git merge origin/master master
 <https://github.com/udacity/pappu-pakia.git>
 <https://github.com/udacity/asteroids.git>
 
+git push -u origin master
+
+-u : mémoriser 
+
 ## git reset [commit]
+
 
 permet de revenir au commit (on supprimer commits ultérieurs)
 Les fichiers du répertoire de travail ne sont pas modifiés
 
-git reset --hard 
+	git reset --hard 
 
 Annule les mises à jour des fichiers du répertoire de travail depuis le commit
 
+## pull request
+
+le commit indique le numéro de pull request, le nom de la branche
+
+## mettre à jour son fork
+
+git remote add upstream https://github.com/kushsolitary/pappu
+
+## hooks
+
+sorte de triggers permettant par example la mise à jour sur site ftp pour chaque push
+
+http://git-scm.com/book/en/v2/Customizing-Git-Git-Hooks
+
+## git stash
+
+permet de stocker fichiers édités mais non commités
+
+git stash apply
+
+permet de récupérer ces fichiers édités après un pull
+
+## merge Conflit
+
+Bien tout commiter avant le merge
+git merge --abort
+revient à état initial après qu'un merge ait échoué (équivaut à git reset --hard)
+
+Les commandes suivantes aident à voir là où ça bloque et d'où vient le problème:
+
+	git wdiff master change <name of file>
+	git log --merge --color-words -p <name of file>
+
+L'éditeur suivant permet de voir les 3 versions:
+
+	git mergetool --tool=vimdiff
