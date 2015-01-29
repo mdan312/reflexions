@@ -49,7 +49,7 @@ exemple: `git help diff`.
 La recherche de différence entre deux versions d'un fichier source permet de repérer les bogues et régressions.
 
 fc
-: outil standard de Windows
+: outil standard de MS-DOS
 
 diff
 : outil standard sur Mac et Linux
