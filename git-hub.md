@@ -229,7 +229,3 @@ Les commandes suivantes aident à voir là où ça bloque et d'où vient le problème:
 L'éditeur suivant permet de voir les 3 versions:
 
 	git mergetool --tool=vimdiff
-
-## git cherry-pick [commit]
-
-Applique uniquement les modifications apportées par le commit en question. 
