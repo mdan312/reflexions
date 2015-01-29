@@ -231,4 +231,7 @@ L'éditeur suivant permet de voir les 3 versions:
 	git mergetool --tool=vimdiff
 
 
-L'outil `git reverse` fonctionne à l'inverse de git `cherry-pick`
+## git cherry-pick [commit]
+
+Applique uniquement les modifications apportées par le commit en question. 
+L'outil `git revert` fonctionne à l'inverse de git `cherry-pick`
