@@ -13,7 +13,7 @@ SVN ne fonctionne pas offline.
 ## Installation
 
 Dans propriétés de la fenêtre GIT BASH cocher case édition rapide pour bénéficier du copier coller par clic droit.  
-Pour avoir la couleur (en N&B par défaut) et autres réglages:
+Pour avoir la couleur (en N&B par défaut), un proxy, des commandes personnalisées et autres réglages:
 
 	git config --global color.ui auto
 	git config --global http.proxy proxy.cete-mediterranee.i2:8080
