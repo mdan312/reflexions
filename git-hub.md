@@ -229,3 +229,6 @@ Les commandes suivantes aident à voir là où ça bloque et d'où vient le prob
 L'éditeur suivant permet de voir les 3 versions:
 
 	git mergetool --tool=vimdiff
+
+
+L'outil `git reverse` fonctionne à l'inverse de git `cherry-pick`
