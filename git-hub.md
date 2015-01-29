@@ -24,12 +24,13 @@ Pour avoir la couleur (en N&B par défaut) et autres réglages:
 	git config --global credential.helper wincred
 	git config --global user.email you@example.com
 	git config --global merge.conflictstyle diff3
+	git config --global core.autocrlf false
 	git config --global alias.wdiff "diff --color-words"
 	git config --global alias.wshow "show --color-words"
 
 ## .bash_profile
 
-Fichier script de config lancé à chaque démarrage à placer dans ~ (répertoire c:\users\[Nom User])
+Fichier script de config lancé à chaque démarrage d'un shell bash, à placer dans ~ (répertoire c:\users\[Nom User])
 Y ajouter les définitions d'alias, du genre:
 
 	alias edit="C:/Program\ Files/EditPlus\ 3/EditPlus.exe"
@@ -190,7 +191,7 @@ git push -u origin master
 permet de revenir au commit (on supprimer commits ultérieurs)
 Les fichiers du répertoire de travail ne sont pas modifiés
 
-	git reset --hard 
+	git reset [commit] --hard 
 
 Annule les mises à jour des fichiers du répertoire de travail depuis le commit
 
@@ -204,7 +205,7 @@ git remote add upstream https://github.com/kushsolitary/pappu
 
 ## hooks
 
-sorte de triggers permettant par example la mise à jour sur site ftp pour chaque push
+sorte de triggers permettant par exemple la mise à jour sur site ftp pour chaque push
 
 http://git-scm.com/book/en/v2/Customizing-Git-Git-Hooks
 
@@ -212,9 +213,7 @@ http://git-scm.com/book/en/v2/Customizing-Git-Git-Hooks
 
 permet de stocker fichiers édités mais non commités
 
-git stash apply
-
-permet de récupérer ces fichiers édités après un pull
+`git stash apply` permet de récupérer ces fichiers édités après un pull
 
 ## merge Conflit
 
