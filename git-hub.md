@@ -1,4 +1,4 @@
-﻿# Git Up
+﻿# Git Hub
 
 Système pour gérer les versions et le travail collaboratif
 https://www.udacity.com/wiki/ud775/install-git
@@ -218,7 +218,9 @@ permet de stocker fichiers édités mais non commités
 ## merge Conflit
 
 Bien tout commiter avant le merge
+
 git merge --abort
+
 revient à état initial après qu'un merge ait échoué (équivaut à git reset --hard)
 
 Les commandes suivantes aident à voir là où ça bloque et d'où vient le problème:
@@ -233,5 +235,5 @@ L'éditeur suivant permet de voir les 3 versions:
 
 ## git cherry-pick [commit]
 
-Applique uniquement les modifications apportées par le commit en question. 
+Applique uniquement les modifications apportées par le commit spécifié. 
 L'outil `git revert` fonctionne à l'inverse de git `cherry-pick`
